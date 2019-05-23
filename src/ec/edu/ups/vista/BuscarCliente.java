@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -18,9 +19,25 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
      * Creates new form Read
      */
      private ControladorCliente controladorcliente;
-    public BuscarCliente(ControladorCliente ControladorCliente) {
+      private ResourceBundle mensajes;
+     
+     
+    public BuscarCliente(ControladorCliente ControladorCliente,ResourceBundle mensaje) {
         initComponents();
         this.controladorcliente = ControladorCliente;
+         this.mensajes = mensaje;
+       cambiarIdioma(mensaje);
+    }
+    
+    public void cambiarIdioma(ResourceBundle mensajes) {
+        LN.setText(mensajes.getString("cliente.nombre"));
+        LC.setText(mensajes.getString("cliente.codigo"));
+        
+        LCE.setText(mensajes.getString("cliente.cedula"));
+        LD.setText(mensajes.getString("cliente.direccion"));
+        LT.setText(mensajes.getString("cliente.telefono"));
+        cancelar.setText(mensajes.getString("boton.cancelar"));
+        buscar.setText(mensajes.getString("boton.buscar"));
     }
 
     /**
@@ -33,17 +50,17 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        LC = new javax.swing.JLabel();
         buscar = new javax.swing.JButton();
         txtcodigo = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txtcedula = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        LT = new javax.swing.JLabel();
+        LD = new javax.swing.JLabel();
+        LN = new javax.swing.JLabel();
+        LCE = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
 
         setBorder(null);
@@ -55,9 +72,9 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         jPanel2.setFocusable(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("INGRESE EL CODIGO DEL CLIENTE:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 455, 30));
+        LC.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LC.setText("CODIGO:");
+        jPanel2.add(LC, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 130, 30));
 
         buscar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         buscar.setText("Buscar");
@@ -69,7 +86,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         jPanel2.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 240, 40));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jPanel2.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 170, 40));
+        jPanel2.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 170, 40));
 
         txtnombre.setEditable(false);
         txtnombre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -92,22 +109,22 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPanel2.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 250, 60));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("TELEFONO:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 160, 30));
+        LT.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LT.setText("TELEFONO:");
+        jPanel2.add(LT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 160, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("DIRECCION:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 160, 30));
+        LD.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LD.setText("DIRECCION:");
+        jPanel2.add(LD, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 160, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("NOMBRE:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 120, 30));
+        LN.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LN.setText("NOMBRE:");
+        jPanel2.add(LN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 120, 30));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("CEDULA:");
-        jLabel5.setToolTipText("");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 120, 30));
+        LCE.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LCE.setText("CEDULA:");
+        LCE.setToolTipText("");
+        jPanel2.add(LCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 120, 30));
 
         cancelar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cancelar.setForeground(new java.awt.Color(0, 255, 204));
@@ -161,13 +178,13 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LC;
+    private javax.swing.JLabel LCE;
+    private javax.swing.JLabel LD;
+    private javax.swing.JLabel LN;
+    private javax.swing.JLabel LT;
     private javax.swing.JButton buscar;
     private javax.swing.JButton cancelar;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;

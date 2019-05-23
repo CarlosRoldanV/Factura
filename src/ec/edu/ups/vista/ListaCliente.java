@@ -7,23 +7,47 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 /**
  *
  * @author Carlos
  */
 public class ListaCliente extends javax.swing.JInternalFrame {
  private ControladorCliente controladorCliente;
+ private ResourceBundle mensajes;
     /**
      * Creates new form Lista
      */
-    public ListaCliente(ControladorCliente controladorCliente) {
+    public ListaCliente(ControladorCliente controladorCliente,ResourceBundle mensaje) {
         initComponents();
         this.controladorCliente=controladorCliente;
         llenarDatos();
+        this.mensajes = mensaje;
+       cambiarIdioma(mensaje);
     }
-
+public void cambiarIdioma(ResourceBundle mensajes){
+        
+        JTableHeader tableHeader = tablacliente.getTableHeader();
+        TableColumnModel tableColumnModel = tableHeader.getColumnModel();
+        TableColumn tableColumn;
+        tableColumn = tableColumnModel.getColumn(0);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.codigo"));
+        tableColumn = tableColumnModel.getColumn(1);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.nombre"));
+        tableColumn = tableColumnModel.getColumn(2);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.cedula"));
+        tableColumn = tableColumnModel.getColumn(3);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.direccion"));
+        tableColumn = tableColumnModel.getColumn(4);
+        tableColumn.setHeaderValue(mensajes.getString("cliente.telefono"));
+        tableHeader.repaint();
+        
+    }
     public void llenarDatos() {
         DefaultTableModel modelo = (DefaultTableModel) tablacliente.getModel();
         Set<Cliente> lista = controladorCliente.getLista();

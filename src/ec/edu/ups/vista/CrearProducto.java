@@ -32,10 +32,11 @@ public class CrearProducto extends javax.swing.JInternalFrame {
     
      public void cambiarIdioma(ResourceBundle mensajes){
         
-        LCODIGO.setText(mensajes.getString("producto.codigo"));
+        JC.setText(mensajes.getString("producto.codigo"));
         JN.setText(mensajes.getString("producto.nombre"));
-        JCE.setText(mensajes.getString("producto.precio"));
+        JP.setText(mensajes.getString("producto.precio"));
         Aceptar.setText(mensajes.getString("boton.crear")); 
+        
     }
     
 
@@ -49,8 +50,8 @@ public class CrearProducto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        JCE = new javax.swing.JLabel();
-        LCODIGO = new javax.swing.JLabel();
+        JP = new javax.swing.JLabel();
+        JC = new javax.swing.JLabel();
         txtp = new javax.swing.JTextField();
         txtnp = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
@@ -65,14 +66,14 @@ public class CrearProducto extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Crear Producto\n\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(51, 255, 51))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JCE.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        JCE.setText("PRECIO:");
-        JCE.setToolTipText("");
-        jPanel3.add(JCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 120, 30));
+        JP.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JP.setText("PRECIO:");
+        JP.setToolTipText("");
+        jPanel3.add(JP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 120, 30));
 
-        LCODIGO.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        LCODIGO.setText("CODIGO:");
-        jPanel3.add(LCODIGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 120, 30));
+        JC.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JC.setText("CODIGO:");
+        jPanel3.add(JC, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 120, 30));
 
         txtp.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtp.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +157,9 @@ public class CrearProducto extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
-    private javax.swing.JLabel JCE;
+    private javax.swing.JLabel JC;
     private javax.swing.JLabel JN;
-    private javax.swing.JLabel LCODIGO;
+    private javax.swing.JLabel JP;
     private javax.swing.JButton cancelar;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtcp;

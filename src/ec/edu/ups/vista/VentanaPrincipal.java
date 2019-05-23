@@ -305,14 +305,14 @@ public void cambiarIdioma(){
 
     private void CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CEActionPerformed
       
-         EliminarCliente crear = new EliminarCliente(controladorcliente);
+         EliminarCliente crear = new EliminarCliente(controladorcliente,mensajes);
       crear.setVisible(true);
       desktopPane.add(crear);
     }//GEN-LAST:event_CEActionPerformed
 
     private void CLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLActionPerformed
         // TODO add your handling code here:
-        ListaCliente crear = new ListaCliente(controladorcliente);
+        ListaCliente crear = new ListaCliente(controladorcliente,mensajes   );
       crear.setVisible(true);
       desktopPane.add(crear);
     }//GEN-LAST:event_CLActionPerformed
@@ -326,7 +326,7 @@ public void cambiarIdioma(){
 
     private void CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBActionPerformed
         // TODO add your handling code here:
-        BuscarCliente  buscar =new BuscarCliente(controladorcliente);
+        BuscarCliente  buscar =new BuscarCliente(controladorcliente,mensajes);
         buscar.setVisible(true);
         desktopPane.add(buscar);
     }//GEN-LAST:event_CBActionPerformed
@@ -337,7 +337,7 @@ public void cambiarIdioma(){
 
     private void CMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMActionPerformed
         // TODO add your handling code here:
-        ModificarCliente  buscar =new ModificarCliente(controladorcliente);
+        ModificarCliente  buscar =new ModificarCliente(controladorcliente,mensajes);
         buscar.setVisible(true);
         desktopPane.add(buscar);
     }//GEN-LAST:event_CMActionPerformed

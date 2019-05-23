@@ -63,13 +63,13 @@ public class Producto {
    
 
     ////to string\\\\\\
+
     @Override
     public String toString() {
-        return "Producto{" + "codigo=" + codigoproducto + ", nombre=" + nombre + ", precio=" + precio + ", fechacaducidas=" + '}';
+        return "Producto{" + "codigoproducto=" + codigoproducto + ", nombre=" + nombre + ", precio=" + precio + '}';
     }
 
     //////////hashcde\\\\\\\\\\
-
     @Override
     public int hashCode() {
         int hash = 5;

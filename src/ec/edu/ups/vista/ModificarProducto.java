@@ -26,16 +26,15 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        n = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        p = new javax.swing.JTextField();
+        txtprecio = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        c = new javax.swing.JTextField();
+        txtcodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,12 +42,12 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(102, 255, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(255, 0, 0))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(n, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, 40));
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, 40));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("PRECIO");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 180, 80, -1));
-        jPanel1.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 180, 40));
+        jPanel1.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 180, 40));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Modificar");
@@ -72,12 +71,12 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         jLabel6.setText("CODIGO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 90, 21));
 
-        c.addActionListener(new java.awt.event.ActionListener() {
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cActionPerformed(evt);
+                txtcodigoActionPerformed(evt);
             }
         });
-        jPanel1.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 180, 40));
+        jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 180, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("NOMBRE");
@@ -92,16 +91,6 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(102, 102, 255));
-        jButton6.setText("ACTUALIZAR");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 150, 50));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, 330));
 
         pack();
@@ -112,46 +101,41 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cActionPerformed
+    }//GEN-LAST:event_txtcodigoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int codigo = Integer.parseInt(c.getText());
+        int codigo = Integer.parseInt(txtcodigo.getText());
         Producto buscarProducto = controladorproducto.read(codigo);
-        n.setText(buscarProducto.getNombre());
-        p.setText(String.valueOf(buscarProducto.getPrecio()));
+        txtnombre.setText(buscarProducto.getNombre());
+        txtprecio.setText(String.valueOf(buscarProducto.getPrecio()));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Producto producto = controladorproducto.read(Integer.parseInt(c.getText()));
-        producto.getNombre(n.getText());
-        producto.setPrecio(Double.valueOf(p.getText()));
+        Producto producto = new Producto();
+        producto.setCodigoProducto(Integer.parseInt(txtcodigo.getText()));
+        producto.setNombre(txtnombre.getText());
+        producto.setPrecio(Double.parseDouble(txtprecio.getText()));
         controladorproducto.update(producto);
-        JOptionPane.showMessageDialog(this, "Cliente actualizado exitosamente!!", "Crear cliente" , JOptionPane.OK_OPTION);
-        c.setText(String.valueOf(this.controladorproducto.getCodigo()));
-        n.setText("");
-        p.setText("");
+        txtnombre.setText("");
+        txtprecio.setText("");
+        JOptionPane.showMessageDialog(this, "Producto Actualizado exitosamente", "Actualizar producto", JOptionPane.OK_OPTION);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField c;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField n;
-    private javax.swing.JTextField p;
+    private javax.swing.JTextField txtcodigo;
+    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtprecio;
     // End of variables declaration//GEN-END:variables
 }

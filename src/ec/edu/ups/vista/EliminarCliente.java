@@ -6,6 +6,7 @@
 package ec.edu.ups.vista;
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +20,24 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
      * Creates new form Delate
      */
      private ControladorCliente controladorcliente;
-    public EliminarCliente(ControladorCliente ControladorCliente) {
+      private ResourceBundle mensajes;
+      
+    public EliminarCliente(ControladorCliente ControladorCliente, ResourceBundle mensaje) {
         initComponents();
          this.controladorcliente = ControladorCliente;
+          this.mensajes = mensaje;
+        cambiarIdioma(mensaje);
+    }
+    public void cambiarIdioma(ResourceBundle mensajes) {
+        LN.setText(mensajes.getString("cliente.nombre"));
+        LC.setText(mensajes.getString("cliente.codigo"));
+        
+        LCE.setText(mensajes.getString("cliente.cedula"));
+        LD.setText(mensajes.getString("cliente.direccion"));
+        LT.setText(mensajes.getString("cliente.telefono"));
+        cancelar.setText(mensajes.getString("boton.cancelar"));
+        buscar.setText(mensajes.getString("boton.buscar"));
+        BE.setText(mensajes.getString("boton.eliminar"));
     }
 
     /**
@@ -34,18 +50,18 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        LC = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         buscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        LN = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         txtcedula = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        LCE = new javax.swing.JLabel();
+        LD = new javax.swing.JLabel();
         txtdireccion = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        LT = new javax.swing.JLabel();
+        BE = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 0));
@@ -56,12 +72,12 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(204, 0, 0))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("INGRESE EL CODIGO DEL CLIENTE:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 455, 30));
+        LC.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LC.setText("CODIGO:");
+        jPanel1.add(LC, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 200, 30));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 170, 40));
+        jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 170, 40));
 
         buscar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         buscar.setText("Buscar");
@@ -72,9 +88,9 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 240, 40));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("NOMBRE:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 120, 30));
+        LN.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LN.setText("NOMBRE:");
+        jPanel1.add(LN, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 120, 30));
 
         txtnombre.setEditable(false);
         txtnombre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -89,14 +105,14 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         txtcedula.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 250, 50));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("CEDULA:");
-        jLabel5.setToolTipText("");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 120, 30));
+        LCE.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LCE.setText("CEDULA:");
+        LCE.setToolTipText("");
+        jPanel1.add(LCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 120, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("DIRECCION:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 160, 30));
+        LD.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LD.setText("DIRECCION:");
+        jPanel1.add(LD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 160, 30));
 
         txtdireccion.setEditable(false);
         txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -106,19 +122,19 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         txttelefono.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPanel1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 250, 50));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("TELEFONO:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 160, 30));
+        LT.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        LT.setText("TELEFONO:");
+        jPanel1.add(LT, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 160, 30));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 255, 102));
-        jButton2.setText("ELIMINAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BE.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        BE.setForeground(new java.awt.Color(153, 255, 102));
+        BE.setText("ELIMINAR");
+        BE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BEActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 136, 40));
+        jPanel1.add(BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 136, 40));
 
         cancelar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cancelar.setForeground(new java.awt.Color(0, 255, 204));
@@ -150,7 +166,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEActionPerformed
         // TODO add your handling code here:
         int codigo = Integer.parseInt(txtcodigo.getText());
         controladorcliente.delete(codigo);
@@ -160,7 +176,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         txtnombre.setText("");
         txtdireccion.setText("");
         txttelefono.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BEActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
@@ -170,14 +186,14 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BE;
+    private javax.swing.JLabel LC;
+    private javax.swing.JLabel LCE;
+    private javax.swing.JLabel LD;
+    private javax.swing.JLabel LN;
+    private javax.swing.JLabel LT;
     private javax.swing.JButton buscar;
     private javax.swing.JButton cancelar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;

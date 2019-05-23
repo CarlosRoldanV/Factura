@@ -20,15 +20,16 @@ public class CrearCliente extends javax.swing.JInternalFrame {
      * Creates new form VentanaSecundaria
      */
     private ControladorCliente controladorcliente;
-     private ResourceBundle mensajes;
-     
-    public CrearCliente(ControladorCliente ControladorCliente,ResourceBundle mensajes) {
+    private ResourceBundle mensajes;
+    
+    public CrearCliente(ControladorCliente ControladorCliente, ResourceBundle mensajes) {
         initComponents();
         this.controladorcliente = ControladorCliente;
-            this.mensajes = mensajes;
-       cambiarIdioma(mensajes);
+        this.mensajes = mensajes;
+        cambiarIdioma(mensajes);
     }
-public void cambiarIdioma(ResourceBundle mensajes){
+
+    public void cambiarIdioma(ResourceBundle mensajes) {
         
         LCODIGO.setText(mensajes.getString("cliente.codigo"));
         JN.setText(mensajes.getString("cliente.nombre"));
@@ -36,8 +37,10 @@ public void cambiarIdioma(ResourceBundle mensajes){
         JD.setText(mensajes.getString("cliente.direccion"));
         JT.setText(mensajes.getString("cliente.telefono"));
         Aceptar.setText(mensajes.getString("boton.crear"));
+        cancelar.setText(mensajes.getString("boton.cancelar"));
         
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,16 +141,16 @@ public void cambiarIdioma(ResourceBundle mensajes){
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
-        Cliente cliente =new Cliente();
+        Cliente cliente = new Cliente();
         
         cliente.setNombre(txtnombre.getText());
         cliente.setCedula(txtcedula.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
         controladorcliente.create(cliente);
-        JOptionPane.showMessageDialog(this, "Cliente creado exitosamente!!", "Crear Cliente" , JOptionPane.OK_OPTION);
+        JOptionPane.showMessageDialog(this, "Cliente creado exitosamente!!", "Crear Cliente", JOptionPane.OK_OPTION);
         ////////limpiar
-         txtnombre.setText("");
+        txtnombre.setText("");
         txtcedula.setText("");
         txtdireccion.setText("");
         txttelefono.setText("");
